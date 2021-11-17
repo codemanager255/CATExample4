@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Combine
 
 // Responsibiliteis of UserViewController
 
@@ -26,17 +26,26 @@ class UserViewController: UIViewController {
     @IBOutlet weak var helloLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     let userPrsenter = UserPresenter()
+    var subscriber = Set<AnyCancellable>()
+    
+    @IBOutlet weak var helloLablelHeightConstraint: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
-        userPrsenter.getUsers { isLoaded in
-            if isLoaded {
+        userPrsenter.getUsers()
+        setupBinding()
+    }
+    
+    func setupBinding() {
+        userPrsenter.$users.sink { users in
+            DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        }
+        }.store(in: &subscriber)
     }
 }
 extension UserViewController: UITableViewDataSource {

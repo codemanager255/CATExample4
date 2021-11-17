@@ -116,6 +116,7 @@
                     <navigationItem key="navigationItem" id="ntz-05-OIB"/>
                     <connections>
                         <outlet property="helloLabel" destination="TBB-o3-GUx" id="QVz-tn-thU"/>
+                        <outlet property="helloLablelHeightConstraint" destination="dRZ-rc-GLD" id="lYC-5d-fI8"/>
                         <outlet property="tableView" destination="WI3-Fg-Xuu" id="qyP-DE-c1G"/>
                     </connections>
                 </viewController>
