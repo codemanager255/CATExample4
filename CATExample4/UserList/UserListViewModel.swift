@@ -7,9 +7,9 @@
 
 import Foundation
 
-class UserPresenter {
+class UserListViewModel {
     
-    private var users:[User] = []
+   @Published private(set) var users:[User] = []
     private let netwrokManager = NetworkManager()
 
     var numberOfUsers:Int {
@@ -21,16 +21,13 @@ class UserPresenter {
         return (user.name, user.email)
     }
 
-    func getUsers(completionHandler:@escaping (Bool)-> Void) {
+    func getUsers() {
         netwrokManager.get(urlString:"https://jsonplaceholder.typicode.com/users", type: User.self) { result in
             switch result {
             case .success(let users):
-                self.users = users ?? []
+                self.users = users
             case .failure(let error):
                 print(error.localizedDescription)
-            }
-            DispatchQueue.main.async {
-                completionHandler(true)
             }
         }
     }

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Combine
 
 // Responsibiliteis of UserViewController
 
@@ -25,30 +25,41 @@ class UserViewController: UIViewController {
     
     @IBOutlet weak var helloLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    let userPrsenter = UserPresenter()
+    let userViewModel = UserListViewModel()
+    var anyCancable:AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
-        userPrsenter.getUsers { isLoaded in
-            if isLoaded {
+        binding()
+        userViewModel.getUsers()
+    }
+    
+    func binding() {
+       anyCancable = userViewModel.$users.sink { _ in
+            DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
+    
+    deinit{
+        anyCancable?.cancel()
+    }
 }
+
 extension UserViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userPrsenter.numberOfUsers
+        return userViewModel.numberOfUsers
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? UsersTableViewCell else {
             return UITableViewCell()
         }
-        let userInfo = userPrsenter.getUserInfo(index: indexPath.row)
+        let userInfo = userViewModel.getUserInfo(index: indexPath.row)
         cell.nameLbl.text = userInfo.name
         cell.emailLbl.text = userInfo.email
 

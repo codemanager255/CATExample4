@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		041259EB273D21B3000585BF /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041259EA273D21B3000585BF /* UserDetailsViewController.swift */; };
 		041259ED273D4373000585BF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041259EC273D4373000585BF /* NetworkManager.swift */; };
-		04CEAC442743B84100852349 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEAC432743B84100852349 /* UserPresenter.swift */; };
+		04CEAC442743B84100852349 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEAC432743B84100852349 /* UserListViewModel.swift */; };
 		04CEAC462743DB0700852349 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEAC452743DB0700852349 /* Posts.swift */; };
 		04DC63F6273BD4DF004754AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC63F5273BD4DF004754AE /* AppDelegate.swift */; };
 		04DC63F8273BD4DF004754AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC63F7273BD4DF004754AE /* SceneDelegate.swift */; };
@@ -46,7 +46,7 @@
 /* Begin PBXFileReference section */
 		041259EA273D21B3000585BF /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		041259EC273D4373000585BF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		04CEAC432743B84100852349 /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
+		04CEAC432743B84100852349 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		04CEAC452743DB0700852349 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		04DC63F2273BD4DF004754AE /* CATExample4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CATExample4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DC63F5273BD4DF004754AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				04DC63F9273BD4DF004754AE /* UserViewController.swift */,
-				04CEAC432743B84100852349 /* UserPresenter.swift */,
+				04CEAC432743B84100852349 /* UserListViewModel.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -325,7 +325,7 @@
 				04DC6426273BD519004754AE /* User.swift in Sources */,
 				04DC63FA273BD4DF004754AE /* UserViewController.swift in Sources */,
 				041259EB273D21B3000585BF /* UserDetailsViewController.swift in Sources */,
-				04CEAC442743B84100852349 /* UserPresenter.swift in Sources */,
+				04CEAC442743B84100852349 /* UserListViewModel.swift in Sources */,
 				04F6DD9B273E74A200427E66 /* SettingTableViewCell.swift in Sources */,
 				04F6DD99273E6D5F00427E66 /* SettingViewController.swift in Sources */,
 				04CEAC462743DB0700852349 /* Posts.swift in Sources */,
